@@ -1,14 +1,3 @@
-#----------------------------------------------------------------
-# File:     solve_quadratic_equation.py
-#----------------------------------------------------------------
-#
-# Author:   Marek Rychlik (rychlik@arizona.edu)
-# Date:     Tue Jul 30 09:37:29 2024
-# Copying:  (C) Marek Rychlik, 2020. All rights reserved.
-# 
-#----------------------------------------------------------------
-# A basic quadratic equation solver. High-school method.
-
 import math
 def solve_quadratic_equation(a, b, c):
     """
@@ -31,7 +20,12 @@ def solve_quadratic_equation(a, b, c):
     """
     # Calculate the discriminant
     discriminant = b**2 - 4*a*c
-
+    
+    # Case for only one real root
+    if discriminant == 0:
+        root1 = (-b/(2*a))
+        return (root1)
+    
     # Calculate the discriminant's square root
     sqrt_discriminant = math.sqrt(discriminant)
 
@@ -40,11 +34,3 @@ def solve_quadratic_equation(a, b, c):
     root2 = (-b - sqrt_discriminant) / (2 * a)
 
     return (root1, root2)
-# Example usage:
-# NOTE: Also, as simple testing framework.
-if __name__ == "__main__":
-    try:
-        roots = solve_quadratic_equation(1, -1000000.001, 1)  # Using the earlier example coefficients
-        print("Roots:", roots)
-    except ValueError as e:
-        print("Error:", e)
