@@ -32,6 +32,11 @@ def solve_quadratic_equation(a, b, c):
     # Calculate the discriminant
     discriminant = b**2 - 4*a*c
 
+    # Case for only one real root.
+    if discriminant == 0:
+        root1 = (-b/(2*a))
+        return (root1, None)
+
     # Calculate the discriminant's square root
     sqrt_discriminant = math.sqrt(discriminant)
 
